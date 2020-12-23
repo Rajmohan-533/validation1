@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Validation</title>
+        <style>
+            body{
+                background:#b434eb;
+            }
+            h1{
+                text-align: center;
+                font-family: sans-serif;
+                font-size:30px;
+                text-decoration: underline;
+                color: #fff;
+            }
+            #myform{ 
+                text-align: center;
+                margin: 95px 0px 0px 30px;
+                 color: #fff;
+            }
+            .input1{
+                margin: 0px 0px 0px 113px;
+            }
+            .input2{
+                margin: 0px 0px 0px 76px;
+            }
+            .input3{
+                margin: 0px 0px 0px 1px;
+            }
+            .label1{
+                font-family:sans-serif;
+                margin-top: 20px;
+                font-size:20px;
+            }
+            .button1{
+                width:120px;
+                height:40px;
+                font-family:sans-serif;
+                font-size:20px;
+                background: #0b070d;
+                color:#fff;
+                margin-top: 20px;
+                border:none;
+                text-decoration: none;
+                text-align:center;
+               
+                
+            }
+        </style>
+    </head>
+    <body>
+        <h1>SIGN IN</h1>
+        <form id="myform" name="myform" method="post" onsubmit="return validation()" action="welcome.html">
+             <label class="label1">Name:</label>
+             <input class="input1" type="text" placeholder="Name" name="name" pattern="[a-zA-Z].{6,}"><br>
+             <label class="label1">Password:</label>
+             <input class="input2" type="password" placeholder="password" name="pass1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
+             <label class="label1">Confirm Password:</label>
+             <input  class="input3" type="password" placeholder="confirm password" name="pass2"><br>
+             <input class="button1" type="submit" value="Submit">
+             <input class="button1" type="reset" value="Reset">
+        </form>
+        
+        <script>
+            function validation(){
+                var password  = document.myform.pass1.value;
+                var cpassword = document.myform.pass2.value;
+                var name      = document.myform.name.value;
+                if(name == "null" || name == ""){
+                    alert("Please enter your name");
+                    return false
+                   }
+                
+                if(password.length<8){
+                    alert("Password should be 8 characters");
+                    return false;
+                   }
+                if(password == cpassword){
+                    return true;
+                }
+                else{
+                    alert("Password and confirm password should be same");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
